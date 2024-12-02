@@ -1,3 +1,5 @@
+App.jsx 
+======================================================
 import { useState } from "react";
 import QuestionCard from "./QuestionCard";
 
@@ -31,4 +33,15 @@ function App() {
     );
 }
 
-export default App;
+QuestionCard.jsx 
+==========================================================
+import React from 'react';
+
+export default function QuestionCard({quiz}){
+    console.log(quiz)
+    return (
+        <>
+            <h3 className="text-2xl">{quiz.question}</h3>
+        </>
+    );
+}
