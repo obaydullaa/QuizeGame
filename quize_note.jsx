@@ -15,13 +15,20 @@ function App() {
         );
         const { results } = await res.json();
         setQuizzes(results);
+        console.log(results);
+        // Getting all Answers
+        const answers = [
+            results[currentQuestionsIndex].correct_answer,
+            ...results[currentQuestionsIndex].incorrect_answers,
+        ];
+        console.log(results[currentQuestionsIndex].correct_answer)
+        setCurrentAnswers(answers)
         setLoaded(true);
         setStartQuiz(true);
-        console.log(results);
     };
     return (
         <div className="container text-center sm mx-auto placeholder:bg-fuchsia-100 mt-10">
-            <h1 className="text-3xl font-bold">React Quiz Application</h1>
+            <h1 className="text-3xl font-bold mb-56">React Quiz Application</h1>
             {
             !startQuiz &&  <button onClick={fetchQuiz} className="mt-5 py-2 px-7 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75">
                 Star Quiz
